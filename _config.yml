@@ -2,7 +2,7 @@ title: Blog by A.M.D. Srinivas
 description: > # this means to ignore newlines until "baseurl:"
   This blog contains my experiences and tutorials on Machine learning, Deep Learning and Computer Software.
 permalink: ':title/'
-baseurl: "/flexible-jekyll" # the subpath of your site, e.g. /blog
+baseurl: "/test_blog" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 site-twitter: #if your site has a twitter account, enter it here
 
