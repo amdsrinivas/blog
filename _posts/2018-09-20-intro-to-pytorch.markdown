@@ -7,3 +7,8 @@ img:  # Add image post (optional)
 ---
 
 Data processing pipeline in Pytorch
+====
+
+[Pytorch](pytorch.org) is a relatively newer deep learning framework compared to Tensorflow. But, it provides excellent features that makes it a framework you should checkout. Main features are **Dynamic Graphs and Typing**.
+
+In this article, we will deal with Pytorch's Dataset class to load, transform and create minibatches for training neural networks in Pytorch.
