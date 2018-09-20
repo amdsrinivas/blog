@@ -7,4 +7,3 @@ img:  # Add image post (optional)
 ---
 
 Data processing pipeline in Pytorch
-====
