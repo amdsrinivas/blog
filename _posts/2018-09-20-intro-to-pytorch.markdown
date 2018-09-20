@@ -4,6 +4,7 @@ title: "Introduction to PyTorch"
 date: 2018-09-20
 description: Introduction to Data processing pipeline using PyTorch! # Add post description (optional)
 img:  intro_to_pytorch/pytorch-logo-flat.png # Add image post (optional)
+url: /test_blog/intro-to-pytorch
 ---
 
 Data processing pipeline in Pytorch
