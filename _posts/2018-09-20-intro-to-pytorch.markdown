@@ -3,7 +3,7 @@ layout: post
 title: "Introduction to PyTorch"
 date: 2018-09-20
 description: Introduction to Data processing pipeline using PyTorch! # Add post description (optional)
-img:  # Add image post (optional)
+img:  intro_to_pytorch/pytorch-logo-flat.png # Add image post (optional)
 ---
 
 Data processing pipeline in Pytorch
