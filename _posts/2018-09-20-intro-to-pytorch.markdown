@@ -11,7 +11,8 @@ Pytorch Basics
 ====
 [Pytorch](pytorch.org) is a relatively newer deep learning framework compared to Tensorflow. But, it provides excellent features that makes it a framework you should checkout. Main features are **Dynamic Graphs and Typing**.
 In this article, we will deal with Pytorch's Dataset class to load, transform and create minibatches for training neural networks in Pytorch. I will explain this by training a simple regression model.
----
+
+------
 First, we will need a simple regression data that would not overwhelm basic networks, yet would need some effort to fit. For this purpose, we will use [Sklearn's make_regression](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_regression.html) function. The _make_regression()_ function generates multi-dimensional regressable data using a linear model. We can add noise(Guassian) to this data to increase our network's work to fit this data. The following code demonstrates the use of this method.
 
 ```python
