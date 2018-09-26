@@ -3,7 +3,7 @@ description: > # this means to ignore newlines until "baseurl:"
   This blog contains my experiences and tutorials on Machine learning, Deep Learning and Computer Software.
 permalink: ':title/'
 baseurl: "/test_blog" # the subpath of your site, e.g. /blog
-url: "https://amdsrinivas.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://amdsrinivas.github.io/test_blog" # the base hostname & protocol for your site, e.g. http://example.com
 site-twitter: #if your site has a twitter account, enter it here
 
 # Author Settings
@@ -17,7 +17,7 @@ social-linkedin: amdsrinivas # add your Linkedin handle
 #social-email: amd.srinivas@gmail.com # add your Email address
 
 # Disqus
-discus-identifier: #mr-brown # add your discus identifier
+discus-identifier: amdsrinivas #mr-brown # add your discus identifier
 
 # Tracker
 analytics: UA-126034999-1 # Google Analytics
