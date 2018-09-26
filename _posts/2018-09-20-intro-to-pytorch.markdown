@@ -30,7 +30,7 @@ This data is generated based on a random linear model due to which, it is differ
 ---
 Once the data is ready, we have to work on data processing and data loading. This is where the Pytorch's Dataset class shines. All we need to do is to inheirt the _Dataset_ class and override the _init, len and getitem_ methods.
 
-In the \_\_init\_\_() method, we load the data required and set the class parameters. The following code demonstrates the \_\_init\_\_() that I used. The use of _transform_ parameter will be explained further.
+In the \_\_init\_\_() method, we load the data required and set the class parameters. The following code demonstrates the \_\_init\_\_() that I used. This dataset is too basic to actually appreciate the use of _transform_ parameter. I will explain it in a future post.
 ```python
 def __init__(self, num_samples=500, num_features=1, num_targets=1, Noise=25.0, transform=None):
     self.X , self.Y = make_regression(n_samples=num_samples, n_features=num_features, noise=Noise)
@@ -104,3 +104,54 @@ The above code implements a data loader that outputs a randomly shuffled 8 sampl
         [ 0.0337]], dtype=torch.float64), 'Y': tensor([ 42.2070,  15.3320,  53.6430,  18.9361,  30.9218,  21.3723, -22.0434, 24.7658], dtype=torch.float64)}
 ```
 ---
+Now that the data is ready, let us start building a feed forward neural network. Let us use a simple network with a __single hidden layer with 4 nodes__ with ReLU activation. For this purpose, we can use the _nn.Module_ class of pytorch and implement the constructor and _forward()_ methods. The follwoing code demonstrates this:
+```python
+class NeuralNet(nn.Module):
+    def __init__(self):
+        super(net,self).__init__()
+
+        self.layer1 = nn.Linear(1,4)
+        self.layer2 = nn.Linear(4,1)
+    
+    def forward(self, x):
+        x = F.relu(self.layer1(x))
+        x = F.relu(self.layer2(x))
+
+        return x
+```
+---
+Now that we have the data and model ready, we can train the model. Firstly, we need to create a dataset, dataloader, optimizer and the Neural network classes as shown below.ALonf with these, we need to specify on what metric the network is to be optimized. Since, we are dealing with a Regression problem, we can use MSE as the loss criterion.
+```python
+dataset = RegressionData()
+dl = DataLoader(dataset, batch_size=8, shuffle=True, num_workers=4)
+optimizer = optim.SGD(model.parameters(), lr=0.1)
+criterion = nn.MSELoss()
+model = NeuralNet()
+model.double()
+```
+We can have a desired number of epochs and train the model using mini-batches of size 8. On every batch, the optimizer has to be stepped forward and the loss obtained should be back propagated. This is shown below:
+```python
+for i in range(50):
+
+    for batch in dl:
+        optimizer.zero_grad()   # zero the gradient buffers
+        output = model(batch['X'])
+        loss = criterion(output, batch['Y'].unsqueeze(-1))
+        #print(loss)
+        loss.backward()
+        optimizer.step()
+    print(loss)
+```
+
+Once the model is trained, we can save it as shown below:
+```python
+save(model.state_dict(), 'intro_to_pytorch')
+```
+Predictions from the model can be done through simple steps:
+```python
+model = NeuralNet()
+model.load_state_dict(load('./intro_to_pytorch'))
+predictions = model(Input_data) # We will get normalized outputs.
+```
+---
+In summary, we have implemented a regression model using Pytorch _Dataset_ and _Module_ classes to minimize the MSE on a random dataset created through sklearn. The code used is available on [github](/add/link/). Feel free to share your feedback and see you in the next post. Stay tuned!
