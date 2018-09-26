@@ -120,7 +120,7 @@ Now that the data is ready, let us start building a feed forward neural network.
 ```python
 class NeuralNet(nn.Module):
     def __init__(self):
-        super(net,self).__init__()
+        super(NeuralNet,self).__init__()
 
         self.layer1 = nn.Linear(1,4)
         self.layer2 = nn.Linear(4,1)
@@ -166,4 +166,4 @@ model.load_state_dict(load('./intro_to_pytorch'))
 predictions = model(Input_data) # We will get normalized outputs.
 ```
 ---
-In summary, we have implemented a regression model using Pytorch _Dataset_ and _Module_ classes to minimize the MSE on a random dataset created through sklearn. The code used is available on [github](/add/link/). Feel free to share your feedback and see you in the next post. Stay tuned!
+In summary, we have implemented a regression model using Pytorch _Dataset_ and _Module_ classes to minimize the MSE on a random dataset created through sklearn. The code used is available on [github](https://github.com/amdsrinivas/Blog-Codes). Feel free to share your feedback and see you in the next post. Stay tuned!
