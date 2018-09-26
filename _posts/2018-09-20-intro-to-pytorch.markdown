@@ -26,7 +26,7 @@ plt.scatter(X,y)
 plt.show()
 ```
 This data is generated based on a random linear model due to which, it is different for each time it is generated. In my case, the generated data is shown below:
-![Data image](amdsrinivas.github.io/blog/assets/img/intro_to_pytorch/data.png)
+![Data image]({{site.baseurl}}/assets/img/intro_to_pytorch/data.png)
 ---
 Once the data is ready, we have to work on data processing and data loading. This is where the Pytorch's Dataset class shines. All we need to do is to inheirt the Dataset class and override the __init, len and getitem__ methods.
 
