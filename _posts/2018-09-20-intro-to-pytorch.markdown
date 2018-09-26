@@ -28,7 +28,7 @@ plt.show()
 This data is generated based on a random linear model due to which, it is different for each time it is generated. In my case, the generated data is shown below:
 ![Data image](/path/to/data_plot)
 ---
-Once the data is ready, we have to work on data processing and data loading. This is where the Pytorch's Dataset class shines. All we need to do is to inheirt the _Dataset_ class and override the _init, len and getitem_ methods.
+Once the data is ready, we have to work on data processing and data loading. This is where the Pytorch's Dataset class shines. All we need to do is to inheirt the Dataset class and override the _init, len and getitem_ methods.
 
 In the \_\_init\_\_() method, we load the data required and set the class parameters. The following code demonstrates the \_\_init\_\_() that I used. This dataset is too basic to actually appreciate the use of _transform_ parameter. I will explain it in a future post.
 ```python
