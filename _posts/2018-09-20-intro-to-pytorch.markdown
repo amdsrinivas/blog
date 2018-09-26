@@ -11,7 +11,7 @@ Pytorch Basics
 ====
 [Pytorch](pytorch.org) is a relatively newer deep learning framework compared to Tensorflow. But, it provides excellent features that makes it a framework you should checkout. Main features are **Dynamic Graphs and Typing**.
 In this article, we will deal with Pytorch's Dataset class to load, transform and create minibatches for training neural networks in Pytorch. I will explain this by training a simple regression model.
-------
+---
 First, we will need a simple regression data that would not overwhelm basic networks, yet would need some effort to fit. For this purpose, we will use [Sklearn's make_regression](http://scikit-learn.org/stable/modules/generated/sklearn.datasets.make_regression.html) function. The _make_regression()_ function generates multi-dimensional regressable data using a linear model. We can add noise(Guassian) to this data to increase our network's work to fit this data. The following code demonstrates the use of this method.
 
 ```python
@@ -26,8 +26,9 @@ plt.scatter(X,y)
 plt.show()
 ```
 This data is generated based on a random linear model due to which, it is different for each time it is generated. In my case, the generated data is shown below:
+
 ![Data image]({{site.baseurl}}/assets/img/intro_to_pytorch/data.png)
-------
+
 Once the data is ready, we have to work on data processing and data loading. This is where the Pytorch's Dataset class shines. All we need to do is to inheirt the Dataset class and override the __init, len and getitem__ methods.
 
 In the \_\_init\_\_() method, we load the data required and set the class parameters. The following code demonstrates the \_\_init\_\_() that I used. This dataset is too basic to actually appreciate the use of _transform_ parameter. I will explain it in a future post.
@@ -131,7 +132,7 @@ class NeuralNet(nn.Module):
 
         return x
 ```
-------
+
 Now that we have the data and model ready, we can train the model. Firstly, we need to create a dataset, dataloader, optimizer and the Neural network classes as shown below.ALonf with these, we need to specify on what metric the network is to be optimized. Since, we are dealing with a Regression problem, we can use MSE as the loss criterion.
 ```python
 dataset = RegressionData()
@@ -165,5 +166,5 @@ model = NeuralNet()
 model.load_state_dict(load('./intro_to_pytorch'))
 predictions = model(Input_data) # We will get normalized outputs.
 ```
-------
+
 In summary, we have implemented a regression model using Pytorch _Dataset_ and _Module_ classes to minimize the MSE on a random dataset created through sklearn. The code used is available on [github](https://github.com/amdsrinivas/Blog-Codes). Feel free to share your feedback and see you in the next post. Stay tuned!
