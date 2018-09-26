@@ -34,7 +34,13 @@ In the \_\_init\_\_() method, we load the data required and set the class parame
 ```python
 def __init__(self, num_samples=500, num_features=1, num_targets=1, Noise=25.0, transform=None):
     self.X , self.Y = make_regression(n_samples=num_samples, n_features=num_features, noise=Noise)
-        
+
+    #Normalize the data across the dataset.
+    X_min, X_max = np.min(self.X), np.max(self.X)
+    self.X = np.array(list(map(lambda k: (k - X_min)/(X_max-X_min) , self.X) ))
+    Y_min, Y_max = np.min(self.Y), np.max(self.Y)
+    self.Y = np.array(list(map(lambda k: (k-Y_min)/(Y_max-Y_min), self.Y)))
+
     self.transform = transform
 ```
 
@@ -60,6 +66,12 @@ The total Dataset class would be as shown:
 class RegressionData(Dataset):
     def __init__(self, num_samples=500, num_features=1, num_targets=1, Noise=25.0, transform=None):
         self.X , self.Y = make_regression(n_samples=num_samples, n_features=num_features, noise=Noise)
+        
+        #Normalize the data across the dataset.
+        X_min, X_max = np.min(self.X), np.max(self.X)
+        self.X = np.array(list(map(lambda k: (k - X_min)/(X_max-X_min) , self.X) ))
+        Y_min, Y_max = np.min(self.Y), np.max(self.Y)
+        self.Y = np.array(list(map(lambda k: (k-Y_min)/(Y_max-Y_min), self.Y)))
         
         self.transform = transform
     
