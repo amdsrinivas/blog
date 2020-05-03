@@ -1,3 +1,4 @@
+---
 layout: post
 title: "NLP with PyTorch : Tokenization and Embeddings"
 date: 2020-05-03
@@ -5,6 +6,7 @@ description: A step-by-step guide to tokenize and create embeddings usable by Py
 img:  # Add image post (optional)
 url: blog/nlp-pytorch-embeddings
 ---
+
 ### What's this about?
 
 Natural Language processsing in the method of analyzing textual data and build intelligent systems that take advantage of abundant data available. This post whilst being self-sufficient, is part of a series of posts on an NLP problem. This series follows the step-by-step procedure that I followed in building a NLP system to tackle the problem of inference validation using SNLI dataset. In this post, the basic step to any NLP problem is discussed along with code for implementing this step using PyTorch, NLTK and Pandas.
@@ -37,6 +39,7 @@ df.groupby('gold_label').count()
 ```
 
 The above snippet of code would give the following output :
+
 ![Counts image]({{site.baseurl}}/assets/img/nlp_pytorch/class_counts.JPG)
 
 The class "**-**" represents that for the given sentence pairs, the annotators could not achieve a majority. We can ignore those examples to simplify our problem. This gives us around 180000 sentence pairs for each class to work with.
@@ -199,6 +202,7 @@ print('Outputs shape : ', _out.shape)
 The *load_state_dict* method loads a torch tensor containing the pre-trained embeddings into the embedding layer. The flag *requires_grad* determines whether these loaded embeddings are to be updated over the course of training. For this experiment, the embedding layer is freezed.
 
 The output of the above code is as shown below:
+
 ![Counts image]({{site.baseurl}}/assets/img/nlp_pytorch/glove_embeddings_out.JPG)
 
 ------
