@@ -117,7 +117,7 @@ A point to consider when using vanilla embedding layers is that, the embeddings 
 
 In order to use the embedding provided, it has to be converted to a matrix form and vocabulary has to be setup. Each line in the embeddings provided by Stanford is of the form :
 
-> WORD<space>\[comma separated vector\]
+> WORD{space}[comma separated vector]
 
 A generic processing method can be something like :
 
